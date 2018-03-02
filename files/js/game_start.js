@@ -3,8 +3,8 @@ AUTHOR: Symon Hambrey
 Game Files - game_start.js */
 
 // load when page created
-// $(document).on("pagecreate", "#titleScreen", function(){
-$(document).on("pagecreate","#gameScreen",function(){
+ $(document).on("pagecreate", "#titleScreen", function(){
+//$(document).on("pagecreate","#gameScreen",function(){
 
   // put canvas into variables
   game_canvas=document.getElementById("gameArea");
@@ -14,10 +14,10 @@ $(document).on("pagecreate","#gameScreen",function(){
   screen_size();
 
   // start game with the splash screen
-//  splash_screen();
+  splash_screen();
 
   // then load welcome screen
-//  welcome_screen();
+  welcome_screen();
 
   // game screens
   game_screen();
