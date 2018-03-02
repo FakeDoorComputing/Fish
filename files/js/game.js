@@ -2,7 +2,7 @@
 AUTHOR: Symon Hambrey
 Game Files - game.js */
 
-time=time_choice[3]; // NOTE remove this when finished
+//time=time_choice[3]; // NOTE remove this when finished
 
 // event triggers
 $(document).on("pagecreate","#gameScreen",function(){
