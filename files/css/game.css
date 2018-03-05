@@ -164,11 +164,11 @@ Game Files - game.css */
 }
 
 .title{
-  font-size: 1em;
+  font-size: 2em;
 }
 
 .intro{
-  font-size: .5em;
+  font-size: 1.5em;
 }
 
 .score_area{
@@ -189,8 +189,7 @@ Game Files - game.css */
   text-shadow: 1px 1px black;
 }
 
-#welcomeScreen img
-{
+#welcomeScreen img{
   margin: 0 auto !important;
   padding-top: 1%;
   padding-bottom: 1%;
@@ -198,8 +197,11 @@ Game Files - game.css */
   display: none;
 }
 
-#welcomeText
-{
+#welcomeText{
+  display: none;
+}
+
+#continue_option{
   display: none;
 }
 
@@ -222,7 +224,8 @@ Game Files - game.css */
 #header  p{
   font-family: 'poppins';
   font-size: 1.5em;
-  color: black;
+  color: #cdce00;
+  text-shadow: 2px 2px black;
   font-weight: normal;
   margin:0 0 0 0;
   padding-top: 0.2em;
@@ -244,6 +247,7 @@ Game Files - game.css */
   padding-left: 5%;
   display: inline-flex;
   float: left;
+  color: #cdce00;
 }
 
 .headerText2

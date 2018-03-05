@@ -49,6 +49,7 @@ https://pixabay.com/en/labels-sticker-button-ball-bubble-1356419/
     <script src="files/js/game.js"></script>
     <script src="files/js/checks.js"></script>
     <script src="files/js/panels.js"></script>
+    <script src="cordova.js"></script>
   </head>
 
   <body>
@@ -71,7 +72,13 @@ https://pixabay.com/en/labels-sticker-button-ball-bubble-1356419/
         <a href="#gameScreen" data-transition="flip"><img alt="medium button" id="medium" class="diff_butt" src="files/graphics/MediumButton.png"/></a></br>
         <a href="#gameScreen" data-transition="flip"><img alt="hard button" id="hard" class="diff_butt" src="files/graphics/HardButton.png"/></a>
       </div>
-	</div>
+      <div id="continue_option">
+        </br>
+        <p class="title">There is a save file available</p>
+        <p class="title">Would you like to load it?</p>
+        <a><img class="middle_buttons" id="continue_game_button" src="files/graphics/continue_game.png" /></a>
+      </div>
+    </div>
 
     <div data-role="page" id="gameScreen">
 
@@ -92,9 +99,9 @@ https://pixabay.com/en/labels-sticker-button-ball-bubble-1356419/
         <h1 class="middle"> Cheese Rating </h1>
         <p id="no_cheese">No cheeses!</p>
         <div id="cheese_score">
-          <img id="cheese1" src="files/graphics/cheese.png"/>
-          <img id="cheese2" src="files/graphics/cheese.png"/>
-          <img id="cheese3" src="files/graphics/cheese.png"/></br></br>
+          <img class="cheese_image" id="cheese1" src="files/graphics/cheese.png"/>
+          <img class="cheese_image" id="cheese2" src="files/graphics/cheese.png"/>
+          <img class="cheese_image" id="cheese3" src="files/graphics/cheese.png"/></br></br>
           <div id="score_display_area">
             <p class="score_area" id="level_bonus"></p>
             <p class="score_area" id="cheese_bonus"></p>

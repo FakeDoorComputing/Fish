@@ -2,7 +2,9 @@
 AUTHOR: Symon Hambrey
 Game Files - game.js */
 
-//time=time_choice[3]; // NOTE remove this when finished
+time=time_choice[1]; // NOTE remove this when finished
+get_player();
+total_levels=level.length-1;
 
 // event triggers
 $(document).on("pagecreate","#gameScreen",function(){
@@ -15,7 +17,10 @@ $(document).on("pagecreate","#gameScreen",function(){
     speed=0;
     game_screen();
   });
-  $("#sound_icon").on("click", function(){
+  $("#continue_game_button").on("tap", function(){
+    alert("continue game");
+  });
+  $("#sound_icon").on("tap", function(){
     if(sound){
       $("#sound_icon").attr("src","files/graphics/sound_off.png");
       sound=false;
@@ -32,12 +37,11 @@ $(document).on("pagecreate","#gameScreen",function(){
     alert("Exit");
   });
   $("#button_placeholder").on("tap",function(){
-  //  load_next_level();
-  console.log("next level")
+    load_next_level();
   });
   $("#continue_from_life").on("tap",function(){
     paused=false;
-    player={x:91,y:2,s:7};
+    get_player();
     speed=0;
     time=time_choice[diff_lev];
     $.mobile.changePage("#gameScreen",{
@@ -53,23 +57,29 @@ $(window).keypress(function(e) {
   var key = ev.keyCode;
   switch(key){
     case 119:
-      direction=0;
+      direction=0; /* W */
       speed=set_speed;
       break;
-    case 115:
+    case 115: /* S */
       direction=1;
       speed=set_speed;
       break;
-    case 97:
+    case 97: /* A */
       direction=2;
       speed=set_speed;
       break;
-    case 100:
+    case 100: /* D */
       direction=3;
       speed=set_speed;
       break;
   };
 });
+
+function get_player(){
+  player[0]=level[levelNo].playPos[0];
+  player[1]=level[levelNo].playPos[1];
+  player[2]=level[levelNo].playPos[2];
+}
 
 // game screen function
 function game_screen(){
@@ -158,11 +168,11 @@ function draw_player(){
   //calculate players movement
   switch(direction){
     case 0:
-      player.y-=speed;
+      player[1]-=speed;
       var checked=check();
 
       if(checked[0]=="wall"){
-        player.y+=speed;
+        player[1]+=speed;
         speed=0;
       }
       if(checked[0]=="trap"){
@@ -179,11 +189,11 @@ function draw_player(){
       break;
 
     case 1:
-      player.y+=speed;
+      player[1]+=speed;
       var checked=check();
 
       if(checked[0]=="wall"){
-        player.y-=speed;
+        player[1]-=speed;
         speed=0;
       }
       if(checked[0]=="trap"){
@@ -200,11 +210,11 @@ function draw_player(){
       break;
 
     case 2:
-      player.x-=speed;
+      player[0]-=speed;
       var checked=check();
 
       if(checked[0]=="wall"){
-        player.x+=speed;
+        player[0]+=speed;
         speed=0;
       }
       if(checked[0]=="trap"){
@@ -221,11 +231,11 @@ function draw_player(){
       break;
 
     case 3:
-      player.x+=speed;
+      player[0]+=speed;
       var checked=check();
 
       if(checked[0]=="wall"){
-        player.x-=speed;
+        player[0]-=speed;
         speed=0;
       }
       if(checked[0]=="trap"){
@@ -244,7 +254,10 @@ function draw_player(){
 
   // draw player
   cv1.beginPath();
-  var pX=xPer*player.x, pY=yPer*player.y, pSx=xPer*player.s, pSy=yPer*player.s;
+  if(sound&&speed>0){
+    scratch.play();
+  }
+  var pX=xPer*player[0], pY=yPer*player[1], pSx=xPer*player[2], pSy=yPer*player[2];
   cv1.drawImage(playerSprite[direction],pX,pY,pSx,pSy);
 }
 
@@ -259,7 +272,20 @@ function cheese(i){
 }
 
 function load_next_level(){
-//  levelNo+=1;
+  levelNo++;
+  if(levelNo<=total_levels){
+    cheeses=0, lives=3, paused=false, time=time_choice[diff_lev], cheese_collected=0;
+    cheese_rating=0;
+    get_player();
+    $("#level_complete_panel").panel("close");
+    $(".score_area").hide();
+    $(".cheese_image").hide();
+    $("#continue").remove()
+    game_screen();
+  }
+  else{
+    end_game("complete");
+  }
 }
 
 function update_stats(){
@@ -272,43 +298,6 @@ function update_stats(){
       beep.play()
   }
   else{
-    $("#seconds_display").css({"color":"black"}).text(Math.floor(time/60));
-  }
-}
-
-
-function life_lost(reason){
-  paused=true;
-  if(lives>1&&reason=="trap"){
-    lives-=1;
-    if(cheese_rating>0)
-      cheese_rating-=1;
-    $("#reason_for_loss").text("You stepped on a trap!");
-    $("#num_lives_left").text("Lives left : "+lives);
-    if(sound)
-      trap_snap.play();
-    $.mobile.changePage("#life_lost",{
-      transition: "flip"
-    });
-  }
-
-  else if(lives>1&&reason=="time"){
-    lives-=1;
-    if(cheese_rating>0)
-      cheese_rating-=1;
-    $("#reason_for_loss").text("You ran out of time!");
-    $("#num_lives_left").html("Lives left : "+lives);
-    if(sound)
-      gong.play();
-    $.mobile.changePage("#life_lost",{
-      transition: "flip"
-    });
-  }
-
-  else if(lives==1&&reason=="trap"){
-
-  }
-  else if(lives==1&&reason=="time"){
-
+    $("#seconds_display").css({"color":"#cdce00"}).text(Math.floor(time/60));
   }
 }
