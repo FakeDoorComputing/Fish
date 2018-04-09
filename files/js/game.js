@@ -52,27 +52,38 @@ $(document).on("pagecreate","#gameScreen",function(){
 })
 
 // get keyboard input for developing
-$(window).keypress(function(e) {
+/*$(window).keypress(function(e) {
   var ev = e;
   var key = ev.keyCode;
-  switch(key){
-    case 119:
-      direction=0; /* W */
-      speed=set_speed;
-      break;
-    case 115: /* S */
-      direction=1;
-      speed=set_speed;
-      break;
-    case 97: /* A */
-      direction=2;
-      speed=set_speed;
-      break;
-    case 100: /* D */
-      direction=3;
-      speed=set_speed;
-      break;
-  };
+  */
+  function move(dir){
+
+    for(i=0;i<2;i++){
+//  switch(key){
+      switch(dir){
+  //  case 119:
+
+        case 1:
+          direction=0; /* W */
+          speed=set_speed;
+          break;
+//    case 115: /* S */
+        case 2:
+          direction=1;
+          speed=set_speed;
+          break;
+//    case 97: /* A */
+        case 3:
+          direction=2;
+          speed=set_speed;
+          break;
+//    case 100: /* D */
+        case 4:
+          direction=3;
+          speed=set_speed;
+          break;
+        };
+      };
 });
 
 function get_player(){
@@ -85,6 +96,8 @@ function get_player(){
 function game_screen(){
 
   if(!paused){
+
+    var dir=get_movement();
 
     time--;
 
