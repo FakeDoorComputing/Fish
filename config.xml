@@ -22,4 +22,5 @@
 
 	<access origin="*"/>
    	<plugin name="cordova-plugin-whitelist" version="1" />
+	<plugin name="cordova-plugin-device-motion" />
 </widget>
