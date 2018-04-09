@@ -84,7 +84,7 @@ $(document).on("pagecreate","#gameScreen",function(){
           break;
         };
       };
-});
+};
 
 function get_player(){
   player[0]=level[levelNo].playPos[0];
