@@ -1,23 +1,19 @@
-
 function get_orientation(event){
 
-  if(paused){
-    if(move){
-      sen_y=event.beta;
-      sen_z=event.gamma;
-      move=false;
-    }
-    start_y=sen_y;
-    start_z=sen_z;
+  var y_value=(event.beta/100)//+1;
+  var z_value=(event.beta/100)//+1;
+
+  console.log(y_value+" "+z_value)
+
+  if(wall){
+    sen_y-=y_value;
+    sen_z-=z_value;
+    wall=false;
   }
-  else{
-    sen_y=event.beta;
-    sen_z=event.gamma;
-    player[0]+=sen_z;
-    player[1]+=sen_y;
-    now_y=start_y-sen_y;
-    now_z=start_z-sen_z;
-    move=true;
+
+  if(!paused&&!trap){
+    player[0]+=z_value;
+    player[1]+=y_value;
   }
 
 }

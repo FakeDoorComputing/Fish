@@ -15,6 +15,7 @@ function check(){
     xBox=xPer*level[levelNo].xSize[i];
     yBox=yPer*level[levelNo].ySize[i];
     if(xPos<pX+pSx&&xPos+xBox>pX&&yPos<pY+pSy&&yPos+yBox>pY){
+      wall=true;
       return ["wall",9];
     }
   }
@@ -25,6 +26,7 @@ function check(){
       var tX=xPer*trap[levelNo].x[i], tY=yPer*trap[levelNo].y[i], tSx=xPer*trap[levelNo].s[i], tSy=yPer*trap[levelNo].s[i];
       var pX=xPer*player[0], pY=yPer*player[1], pSx=xPer*player[2], pSy=yPer*player[2];
       if(tX<pX+pSx&&tX+tSx>pX&&tY<pY+pSy&&tY+tSy>pY){
+        trap_triggered=true;
         return ["trap",9];
       }
     }
@@ -37,6 +39,7 @@ function check(){
     xBox=xPer*level[levelNo].exit[2];
     yBox=yPer*level[levelNo].exit[2];
     if(xPos<pX+pSx&&xPos+xBox>pX&&yPos<pY+pSy&&yPos+yBox>pY){
+      exit_level=true;
       return ["exit",9];
     }
   }

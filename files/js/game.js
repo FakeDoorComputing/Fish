@@ -6,6 +6,8 @@ time=time_choice[1]; // NOTE remove this when finished
 get_player();
 total_levels=level.length-1;
 
+console.log("start t:"+trap_triggered+" e:"+exit_level+" w:"+wall);
+
 // event triggers
 $(document).on("pagecreate","#gameScreen",function(){
 
@@ -100,6 +102,8 @@ function get_player(){
 // game screen function
 function game_screen(){
 
+  console.log("time: "+time+" lives: "+lives)
+
   if(!paused){
 
     time--;
@@ -182,7 +186,7 @@ function draw_maze(){
 function draw_player(){
 
   //calculate players movement
-  switch(direction){
+/*  switch(direction){
     case 0:
       player[1]-=speed;
       var checked=check();
@@ -266,7 +270,19 @@ function draw_player(){
         cheese(checked[1]);
       }
       break;
-  };
+  };*/
+
+  var checked=check();
+  console.log(trap_triggered+" "+exit_level+" "+wall);
+  if(trap_triggered){
+    life_lost("trap");
+  }
+  if(exit_level){
+    exit();
+  }
+  if(checked[0]=="cheese"){
+    cheese(checked[1]);
+  }
 
   // draw player
   cv1.beginPath();

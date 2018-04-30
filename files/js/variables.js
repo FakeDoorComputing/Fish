@@ -17,7 +17,7 @@ var diff_lev=2, paused=false, levelNo=1, total_levels, direction=0, speed=0, liv
 var key;
 
 // motion sensor variables
-var sen_y, sen_z, start_y, start_z, now_y, now_z, move=true;
+var sen_y, sen_z, start_y, start_z, now_y, now_z, move=true, wall=false, trap_triggered=false, exit_level=false;
 
 // load sound effects
 var splash=new Audio("files/sounds/new_intro.mp3");
