@@ -1,33 +1,23 @@
-$(document).on("deviceready", function(){
 
-  function get_movement(){
+function get_orientation(event){
 
-    navigator.accelerometer.getCurrentAcceleration(acc_success, acc_err);
-
-    function acc_success(acc){
-      a_x=acc.x, a_y=acc.y, a_t=acc.timestamp;
-      if(a_x>(ax+10)){
-        dir=3;
-        ax=a_x;
-      }
-      if(a_x<(ax-10)){
-        dir=4;
-        ax=a_x;
-      }
-      if(a_y>(ay+10)){
-        dir=1;
-        ay=a_y;
-      }
-      if(a_y<(ay-10){
-        dir=2;
-        ay=a_y;
-      }
-      return [dir];
+  if(paused){
+    if(move){
+      sen_y=event.beta;
+      sen_z=event.gamma;
+      move=false;
     }
-
-    function acc_err(){
-      console.log("motion error");
-    }
-
+    start_y=sen_y;
+    start_z=sen_z;
   }
-})
+  else{
+    sen_y=event.beta;
+    sen_z=event.gamma;
+    player[0]+=sen_z;
+    player[1]+=sen_y;
+    now_y=start_y-sen_y;
+    now_z=start_z-sen_z;
+    move=true;
+  }
+
+}

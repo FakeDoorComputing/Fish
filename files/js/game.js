@@ -8,6 +8,9 @@ total_levels=level.length-1;
 
 // event triggers
 $(document).on("pagecreate","#gameScreen",function(){
+
+  window.addEventListener("deviceorientation", get_orientation, true);
+
   $("#pausePanel").css("background-size", wd);
   $("#pausePanel").on("panelbeforeopen", function(){
     paused=true;
@@ -47,6 +50,8 @@ $(document).on("pagecreate","#gameScreen",function(){
     $.mobile.changePage("#gameScreen",{
       transition: "flip"
     });
+
+    // start game
     game_screen();
   });
 })
@@ -56,7 +61,7 @@ $(document).on("pagecreate","#gameScreen",function(){
   var ev = e;
   var key = ev.keyCode;
   */
-  function move(dir){
+/*  function move(dir){
 
     for(i=0;i<2;i++){
 //  switch(key){
@@ -64,27 +69,27 @@ $(document).on("pagecreate","#gameScreen",function(){
   //  case 119:
 
         case 1:
-          direction=0; /* W */
+          direction=0;
           speed=set_speed;
           break;
-//    case 115: /* S */
+//    case 115:
         case 2:
           direction=1;
           speed=set_speed;
           break;
-//    case 97: /* A */
+//    case 97:
         case 3:
           direction=2;
           speed=set_speed;
           break;
-//    case 100: /* D */
+//    case 100:
         case 4:
           direction=3;
           speed=set_speed;
           break;
         };
       };
-};
+};*/
 
 function get_player(){
   player[0]=level[levelNo].playPos[0];
@@ -96,8 +101,6 @@ function get_player(){
 function game_screen(){
 
   if(!paused){
-
-    var dir=get_movement();
 
     time--;
 
