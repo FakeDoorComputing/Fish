@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "cheese.hunt"
-        version   = "0.9">
+        version   = "0.91">
 
     <icon src="icon.png" />
 
@@ -16,11 +16,14 @@
         WBS Computing
     </author>
 
+    <preference name="Orientation" value="portrait" />
+
     <preference name="phonegap-version" value="cli-7.0.1" />
 
     <preference name="permissions" value="none"/>
 
-	<access origin="*"/>
+	  <access origin="*"/>
+
    	<plugin name="cordova-plugin-whitelist" version="1" />
-	<plugin name="cordova-plugin-device-motion" />
+
 </widget>
