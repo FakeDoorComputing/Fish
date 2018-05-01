@@ -12,8 +12,8 @@ function get_orientation(event){
   }
 
   if(!paused&&!trap_triggered){
-    player[0]=y_value;
-    player[1]=z_value;
+    player[0]+=y_value;
+    player[1]+=z_value;
   }
 
   check();
