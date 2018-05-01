@@ -16,4 +16,7 @@ function get_orientation(event){
     player[1]+=y_value;
   }
 
+  check();
+
+
 }
