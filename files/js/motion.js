@@ -1,6 +1,6 @@
 function get_orientation(event){
 
-  var y_value=round(event.gamme/100,1)*10;
+  var y_value=round(event.gamma/100,1)*10;
   var z_value=round(event.beta/100,1)*10;
 
   console.log("y_v: "+y_value+" z_v: "+z_value+" s_y: "+sen_y+" s_z: "+sen_z+" p0: "+player[0]+" p1: "+player[1]+" wall: "+wall+" paused: "+paused+" trap: "+trap_triggered)
