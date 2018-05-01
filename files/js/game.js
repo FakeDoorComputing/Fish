@@ -266,7 +266,7 @@ function draw_player(){
         cheese(checked[1]);
       }
       break;
-  };*/
+  };
 
   var checked=check();
   if(trap_triggered){
@@ -277,7 +277,7 @@ function draw_player(){
   }
   if(checked[0]=="cheese"){
     cheese(checked[1]);
-  }
+  }*/
 
   // draw player
   cv1.beginPath();
@@ -302,7 +302,7 @@ function load_next_level(){
   levelNo++;
   if(levelNo<=total_levels){
     cheeses=0, lives=3, paused=false, time=time_choice[diff_lev], cheese_collected=0;
-    cheese_rating=0;
+    cheese_rating=0, sen_y=level[levelNo].playPos[0], sen_z=level[levelNo].playPos[1];
     get_player();
     $("#level_complete_panel").panel("close");
     $(".score_area").hide();

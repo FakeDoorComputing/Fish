@@ -5,7 +5,7 @@ function get_orientation(event){
 
   console.log("y_v: "+y_value+" z_v: "+z_value+" s_y: "+sen_y+" s_z: "+sen_z+" p0: "+player[0]+" p1: "+player[1]+" wall: "+wall+" paused: "+paused+" trap: "+trap_triggered)
 
-  if(wall){
+  if(!paused&&wall){
     sen_y-=y_value;
     sen_z-=z_value;
     wall=false;

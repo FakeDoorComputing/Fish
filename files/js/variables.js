@@ -79,6 +79,8 @@ var level=[{},{ /* level one */
   playPos:[2,2,7]
 }];
 
+var sen_y=level[1].playPos[0], sen_z=level[1].playPos[1]
+
 // initialise trap placement
 var trap=[{},{ /* level one */
   x:[91,12,22],
