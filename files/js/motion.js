@@ -17,9 +17,9 @@ function get_orientation(event){
     if(player[0]<0){player[0]=0}
     if(player[1]<0){player[1]=0}
     if((player[0]+player[2])>=wd){player[0]=(wd-player[2])}
-    if((player[1]+player[3])>=ht){player[1]=(ht-player[3])}
-    console.log("p0: "+player[0]+" p1: "+player[1]+" p0+p1: "+(player[0]+player[1]));
-    console.log("p2: "+player[2]+" p3: "+player[3]+" p2+p3: "+(player[2]+player[3]));
+    if((player[1]+player[2])>=ht){player[1]=(ht-player[2])}
+    console.log("p0: "+player[0]+" p2: "+player[2]+" p0+p2: "+(player[0]+player[2]));
+    console.log("p1: "+player[1]+" p2: "+player[2]+" p1+p2: "+(player[1]+player[2]));
     console.log("wd: "+wd+" ht; "+ht);
   }
 
