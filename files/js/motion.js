@@ -3,7 +3,7 @@ function get_orientation(event){
   var y_value=(event.beta/100)//+1;
   var z_value=(event.beta/100)//+1;
 
-  console.log(y_value+" "+z_value)
+  console.log("y_v: "+y_value+" z_v: "+z_value+" s_y: "+sen_y+" s_z: "+sen_z+" p0: "+player[0]+" p1: "+player[1])
 
   if(wall){
     sen_y-=y_value;

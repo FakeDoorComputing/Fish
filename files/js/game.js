@@ -6,8 +6,6 @@ time=time_choice[1]; // NOTE remove this when finished
 get_player();
 total_levels=level.length-1;
 
-console.log("start t:"+trap_triggered+" e:"+exit_level+" w:"+wall);
-
 // event triggers
 $(document).on("pagecreate","#gameScreen",function(){
 
@@ -101,8 +99,6 @@ function get_player(){
 
 // game screen function
 function game_screen(){
-
-  console.log("time: "+time+" lives: "+lives)
 
   if(!paused){
 
@@ -273,7 +269,6 @@ function draw_player(){
   };*/
 
   var checked=check();
-  console.log(trap_triggered+" "+exit_level+" "+wall);
   if(trap_triggered){
     life_lost("trap");
   }
