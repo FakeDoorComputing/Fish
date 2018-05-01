@@ -1,7 +1,16 @@
 function get_orientation(event){
 
-  var y_value=round(event.gamma/100,1)*10;
-  var z_value=round(event.beta/100,1)*10;
+  if(orient){
+    start_y=round(event.gamma/100,1)*10;
+    start_z=round(event.beta/100,1)*10;
+    orient=false;
+  }
+
+  var yv=event.gamma;
+  var zv=event.beta;
+
+  var y_value=round((start_y-yv)/100,1)*10;
+  var z_value=round((start_z-zv)/100,1)*10;
 
 //  console.log("y_v: "+y_value+" z_v: "+z_value+" s_y: "+sen_y+" s_z: "+sen_z+" p0: "+player[0]+" p1: "+player[1]+" wall: "+wall+" paused: "+paused+" trap: "+trap_triggered)
 
@@ -16,8 +25,8 @@ function get_orientation(event){
     player[1]+=z_value;
     if(player[0]<0){player[0]=0}
     if(player[1]<0){player[1]=0}
-    if((player[0]+player[2])>=wd){player[0]=(wd-player[2])}
-    if((player[1]+player[2])>=ht){player[1]=(ht-player[2])}
+    if((player[0]+player[2])>wd){player[0]=(wd-player[2])}
+    if((player[1]+player[2])>ht){player[1]=(ht-player[2])}
     console.log("p0: "+player[0]+" p2: "+player[2]+" p0+p2: "+(player[0]+player[2]));
     console.log("p1: "+player[1]+" p2: "+player[2]+" p1+p2: "+(player[1]+player[2]));
     console.log("wd: "+wd+" ht; "+ht);
