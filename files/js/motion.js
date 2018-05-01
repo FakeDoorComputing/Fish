@@ -14,6 +14,10 @@ function get_orientation(event){
   if(!paused&&!trap_triggered){
     player[0]+=y_value;
     player[1]+=z_value;
+    if(player[0]<0){player[0]=0}
+    if(player[1]<0){player[1]=0}
+    if((player[0]+player[2])>wd){player[0]=(wd-player[2])}
+    if((player[1]+player[3])>ht){player[1]=(ht-player[3])}
   }
 
   check();
