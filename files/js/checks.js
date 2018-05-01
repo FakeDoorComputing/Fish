@@ -7,6 +7,7 @@ function check(){
   // put player into shorter variable name and calculate by screen size
   var pX=xPer*player[0], pY=yPer*player[1], pSx=xPer*player[2], pSy=yPer*player[2];
 
+  console.log("pX: "+pX+" pY: "+pY+" pSx: "+pSx+" pSy: "+pSy)
 
   // check for walls
   for(i=0;i<level[levelNo].xStrt.length;i++){
