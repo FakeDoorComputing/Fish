@@ -8,5 +8,4 @@ function screen_size(){
   game_canvas.width=wd;
   game_canvas.height=ht;
   xPer=wd/100, yPer=ht/100; // divide the window sizes by 100 (for more control divide by 1000, but increase x/y positions by factor of 10)
-  screen.orientation.lock("portrait"); // NOTE CHECK THIS
 }
