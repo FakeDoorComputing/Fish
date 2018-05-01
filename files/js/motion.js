@@ -15,14 +15,14 @@ function get_orientation(event){
 //  console.log("y_v: "+y_value+" z_v: "+z_value+" s_y: "+sen_y+" s_z: "+sen_z+" p0: "+player[0]+" p1: "+player[1]+" wall: "+wall+" paused: "+paused+" trap: "+trap_triggered)
 
   if(!paused&&wall){
-    sen_y=round(sen_y-=y_value,1);
-    sen_z=round(sen_z-=z_value,1);
+    sen_y=round(sen_y+=y_value,1);
+    sen_z=round(sen_z+=z_value,1);
     wall=false;
   }
 
   if(!paused&&!trap_triggered){
-    player[0]+=y_value;
-    player[1]+=z_value;
+    player[0]-=y_value;
+    player[1]-=z_value;
     if(player[0]<0){player[0]=0}
     if(player[1]<0){player[1]=0}
     if((player[0]+player[2])>wd){player[0]=(wd-player[2])}
