@@ -4,6 +4,7 @@ function get_orientation(event){
     start_y=round(event.gamma/100,1)*10;
     start_z=round(event.beta/100,1)*10;
     orient=false;
+    console.log("st-y: "+start_y+" st-z: "+start_z)
   }
 
   var yv=event.gamma;
