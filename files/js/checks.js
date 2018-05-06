@@ -7,18 +7,17 @@ function check(){
   // put player into shorter variable name and calculate by screen size
   var pX=round(xPer*player[0],0), pY=round(yPer*player[1],0), pSx=round(xPer*player[2],0), pSy=round(yPer*player[2],0);
 
-//  console.log("pX: "+pX+" pY: "+pY+" pSx: "+pSx+" pSy: "+pSy)
-
   // check for walls
   for(i=0;i<level[levelNo].xStrt.length;i++){
-    xPos=xPer*level[levelNo].xStrt[i];
-    yPos=yPer*level[levelNo].yStrt[i];
-    xBox=xPer*level[levelNo].xSize[i];
-    yBox=yPer*level[levelNo].ySize[i];
-    console.log("xPos: "+xPos+" yPos: "+yPos+" xBox: "+xBox+" yBox: "+yBox+" pX: "+pX+" pY: "+pY+" pSx: "+pSx)
+    xPos=xPer*level[levelNo].xStrt[i]; /* wall x start */
+    yPos=yPer*level[levelNo].yStrt[i]; /* wall y start */
+    xBox=xPer*level[levelNo].xSize[i]; /* wall x length */
+    yBox=yPer*level[levelNo].ySize[i]; /* wall y length */
     if(xPos<pX+pSx&&xPos+xBox>pX&&yPos<pY+pSy&&yPos+yBox>pY){
+      //if(pY<yPos+yBox&&pY+pSy)
+    //  if(pX)
       wall=true;
-      console.log("hit")
+      console.log("hit "+i)
       return ["wall",9];
     }
   }
