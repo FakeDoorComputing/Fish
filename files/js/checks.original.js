@@ -15,7 +15,6 @@ function check(){
     yPos=yPer*level[levelNo].yStrt[i];
     xBox=xPer*level[levelNo].xSize[i];
     yBox=yPer*level[levelNo].ySize[i];
-    console.log("xPos: "+xPos+" yPos: "+yPos+" xBox: "+xBox+" yBox: "+yBox+" pX: "+pX+" pY: "+pY+" pSx: "+pSx)
     if(xPos<pX+pSx&&xPos+xBox>pX&&yPos<pY+pSy&&yPos+yBox>pY){
       wall=true;
       return ["wall",9];

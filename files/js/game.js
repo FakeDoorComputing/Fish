@@ -2,6 +2,7 @@
 AUTHOR: Symon Hambrey
 Game Files - game.js */
 
+var ev, key, y_value=0, z_value=0, testflag=0; // NOTE: remove this when complete
 time=time_choice[1]; // NOTE remove this when finished
 get_player();
 total_levels=level.length-1;
@@ -57,11 +58,27 @@ $(document).on("pagecreate","#gameScreen",function(){
 })
 
 // get keyboard input for developing
-/*$(window).keypress(function(e) {
+$(window).keypress(function(e) {
   var ev = e;
   var key = ev.keyCode;
-  */
-/*  function move(dir){
+  switch(key){
+    case 119:
+      player[1]-=1;
+      break;
+    case 115:
+      player[1]+=1
+      break;
+    case 97:
+      player[0]-=1;
+      break;
+    case 100:
+      player[0]+=1;
+      break;
+  }
+console.log("px: "+player[0]+" py: "+player[1])
+})
+  /*
+  function move(dir){
 
     for(i=0;i<2;i++){
 //  switch(key){
@@ -110,7 +127,7 @@ function game_screen(){
     }
 
     draw_maze();
-
+    testflag=1; // NOTE: remove this when done
     draw_player();
 
     update_stats();
@@ -152,6 +169,7 @@ function draw_maze(){
     yPos=yPer*level[levelNo].yStrt[i];
     xBox=xPer*level[levelNo].xSize[i];
     yBox=yPer*level[levelNo].ySize[i];
+    if(testflag==0){console.log("x: "+xPos+" y: "+yPos+" xl: "+xBox+" yl: "+yBox)}
     cv1.rect(xPos,yPos,xBox,yBox);
     cv1.fillStyle="rgb(255,0,0)";
     cv1.fill();
@@ -281,7 +299,7 @@ function draw_player(){
 
   // draw player
   cv1.beginPath();
-  if(sound&&speed>0){
+  if(sound){
     scratch.play();
   }
   var pX=xPer*player[0], pY=yPer*player[1], pSx=xPer*player[2], pSy=yPer*player[2];
