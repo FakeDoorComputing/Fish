@@ -18,6 +18,7 @@ function check(){
     console.log("xPos: "+xPos+" yPos: "+yPos+" xBox: "+xBox+" yBox: "+yBox+" pX: "+pX+" pY: "+pY+" pSx: "+pSx)
     if(xPos<pX+pSx&&xPos+xBox>pX&&yPos<pY+pSy&&yPos+yBox>pY){
       wall=true;
+      console.log("hit")
       return ["wall",9];
     }
   }
