@@ -3,8 +3,8 @@ AUTHOR: Symon Hambrey
 Game Files - game_start.js */
 
 // load when page created
-$(document).on("pagecreate", "#titleScreen", function(){
-//$(document).on("pagecreate","#gameScreen",function(){
+//$(document).on("pagecreate", "#titleScreen", function(){
+$(document).on("pagecreate","#gameScreen",function(){
 
   // put canvas into variables
   game_canvas=document.getElementById("gameArea");
